@@ -132,9 +132,8 @@
 		goodix,irq-gpio = <&tlmm 25 0x2008>;
 		goodix,reset-gpio = <&tlmm 24 0x00>;
 		goodix,irq-flags = <2>;
-		goodix,panel-max-x = <143999>;
-		goodix,panel-max-y = <319999>;
-		goodix,super-resolution-factor = <100>;
+		goodix,panel-max-x = <14400>;
+		goodix,panel-max-y = <32000>;
 		goodix,panel-max-w = <255>;
 		goodix,panel-max-p = <4096>;
 		goodix,firmware-name = "goodix_firmware_vermeer";
