@@ -66,7 +66,9 @@ KALAMA_BOARDS += \
 		 kalama-qrd-overlay.dtbo \
 		 kalama-sg-hhg-overlay.dtbo \
 		 kalamap-hdk-overlay.dtbo \
-		 kalamap-sg-hhg-overlay.dtbo
+		 kalamap-sg-hhg-overlay.dtbo \
+		 kalamap-rb5-gen2-overlay.dtbo \
+		 kalamap-aim300-overlay.dtbo
 
 NOAPQ_KALAMA_BOARDS += \
 		 kalama-rumi-overlay.dtbo \
@@ -87,12 +89,20 @@ socrates-overlays-dtb-$(CONFIG_ARCH_KALAMA) += $(KALAMA_BOARDS) $(NOAPQ_KALAMA_B
 vermeer-overlays-dtb-$(CONFIG_ARCH_KALAMA) += $(KALAMA_BOARDS) $(NOAPQ_KALAMA_BOARDS) $(KALAMA_BASE_DTB) $(KALAMA_APQ_BASE_DTB)
 sheng-overlays-dtb-$(CONFIG_ARCH_KALAMA) += $(KALAMA_BOARDS) $(NOAPQ_KALAMA_BOARDS) $(KALAMA_BASE_DTB) $(KALAMA_APQ_BASE_DTB)
 kalama_le-overlays-dtb-$(CONFIG_ARCH_KALAMA) += $(KALAMA_BOARDS) $(NOAPQ_KALAMA_BOARDS) $(KALAMA_BASE_DTB) $(KALAMA_APQ_BASE_DTB)
+kalama_lu-overlays-dtb-$(CONFIG_ARCH_KALAMA) += $(KALAMA_BOARDS) $(NOAPQ_KALAMA_BOARDS) $(KALAMA_BASE_DTB) $(KALAMA_APQ_BASE_DTB)
 dtb-y += $(kalama-dtb-y)
 
 CROW_BASE_DTB += crow.dtb
 
 CROW_BOARDS += \
-		crow-rumi-overlay.dtbo
+		crow-rumi-overlay.dtbo \
+		crow-atp-overlay.dtbo \
+		crow-idp-overlay.dtbo \
+		crow-idp-wcd9395-wcd-dmic-overlay.dtbo \
+		crow-idp-wcd9395-dmic-overlay.dtbo \
+		crow-idp-wcd9395-aatc-overlay.dtbo \
+		crow-idp-rcm-overlay.dtbo \
+		crow-qrd-overlay.dtbo
 
 kalama-dtb-$(CONFIG_ARCH_CROW) += \
 	$(call add-overlays, $(CROW_BOARDS) ,$(CROW_BASE_DTB))
@@ -106,7 +116,7 @@ dtb-y += $(socrates-dtb-y)
 dtb-y += $(vermeer-dtb-y)
 dtb-y += $(sheng-dtb-y)
 
-KHAJE_BASE_DTB += khaje.dtb khajep.dtb khajeq.dtb khajeg.dtb
+KHAJE_BASE_DTB += khaje.dtb khajep.dtb khajeq.dtb khajeg.dtb khaje-3gb.dtb
 
 KHAJE_BOARDS += \
                  khaje-idp-overlay.dtbo \
@@ -161,14 +171,21 @@ KONA_LE_BASE_DTB += kona-7230-iot-v2.1.dtb qrb5165-iot.dtb qrb5165n-iot.dtb qrb3
 KONA_BOARDS += \
                  kona-hdk-overlay.dtbo \
                  kona-rb5-HDMI-overlay.dtbo \
+                 kona-rb5-HDMI-overlay-new.dtbo \
+                 kona-rb5-overlay-new.dtbo \
                  kona-iot-v2.1-vc-overlay.dtbo \
+		 kona-7230-iot-rb5-overlay.dtbo \
 		 kona-rb5-overlay.dtbo \
-		 kona-iot-v2.1-rb5-overlay.dtbo
+		 kona-qrd-wingmate-overlay.dtbo \
+		 kona-mtp-wingmate-overlay.dtbo
 
 
 KONA_LE_BOARDS += \
-		 kona-iot-v2.1-rb5-overlay.dtbo \
-		 kona-iot-v2-rb5-overlay.dtbo
+		 qrb5165-iot-rb5-overlay.dtbo \
+		 qrb3165-iot-rb5-overlay.dtbo \
+		 kona-7230-iot-rb5-overlay.dtbo \
+		 qrb5165n-iot-v2-rb5-overlay.dtbo \
+		 qrb3165n-iot-v2-rb5-overlay.dtbo
 
 kona-dtb-$(CONFIG_ARCH_KONA) += \
         $(call add-overlays, $(KONA_BOARDS) ,$(KONA_BASE_DTB)) \
@@ -202,15 +219,17 @@ cinder-dtb-$(CONFIG_ARCH_CINDER) += cinder-ru-rumi.dtb \
 	cinder-ru-idp-2gb.dtb \
 	cinder-du-idp.dtb \
 	cinder-du-x100.dtb \
+	cinder-du-idp-4gb.dtb \
 	cinder-v2-ru-idp.dtb \
 	cinder-v2-ru-idp-2gb.dtb \
 	cinder-v2-du-idp.dtb \
+	cinder-v2-du-idp-4gb.dtb \
 	cinder-v2-du-x100.dtb \
 	cinder-v2-ru-rumi.dtb \
 	cinder-v2-du-rumi.dtb
 dtb-y += $(cinder-dtb-y)
 
-QCS405_BASE_DTB += qcs405.dtb
+QCS405_BASE_DTB += qcs405.dtb qcs407.dtb
 
 QCS405_BOARDS += qcs405-iot-sku1-overlay.dtbo \
 	qcs405-iot-sku2-overlay.dtbo \
@@ -222,11 +241,8 @@ QCS405_BOARDS += qcs405-iot-sku1-overlay.dtbo \
 	qcs405-iot-sku8-overlay.dtbo \
 	qcs405-iot-sku9-overlay.dtbo \
 	qcs405-iot-sku10-overlay.dtbo \
-	qcs407-iot-sku12-overlay.dtbo \
-	qcs407-iot-sku13-overlay.dtbo \
-	qcs407-iot-sku4-overlay.dtbo   \
-	qcs407-iot-sku6-overlay.dtbo   \
-	qcs407-iot-sku9-overlay.dtbo
+	qcs405-iot-sku12-overlay.dtbo \
+	qcs405-iot-sku13-overlay.dtbo
 
 qcs405-dtb-$(CONFIG_ARCH_QCS405) += \
         $(call add-overlays, $(QCS405_BOARDS) ,$(QCS405_BASE_DTB))
@@ -234,7 +250,7 @@ qcs405-dtb-$(CONFIG_ARCH_QCS405) += \
 qcs405-overlays-dtb-$(CONFIG_ARCH_QCS405) += $(QCS405_BOARDS) $(QCS405_BASE_DTB)
 dtb-y += $(qcs405-dtb-y)
 
-TRINKET_BASE_DTB += trinket-iot.dtb
+TRINKET_BASE_DTB += trinket-iot.dtb trinketp-iot.dtb
 
 TRINKET_BOARDS += \
 	trinket-iot-idp-overlay.dtbo \
@@ -242,7 +258,11 @@ TRINKET_BOARDS += \
 	trinket-iot-dp-idp-overlay.dtbo \
 	trinket-iot-external-codec-idp-overlay.dtbo \
 	trinket-iot-usbc-external-codec-idp-overlay.dtbo \
-	trinket-iot-usbc-idp-overlay.dtbo
+	trinket-iot-usbc-idp-overlay.dtbo \
+	trinketp-iot-dp-idp-overlay.dtbo \
+	trinketp-iot-external-codec-idp-overlay.dtbo \
+	trinketp-iot-usbc-external-codec-idp-overlay.dtbo \
+	trinketp-iot-usbc-idp-overlay.dtbo
 
 trinket-dtb-$(CONFIG_ARCH_TRINKET) += \
         $(call add-overlays, $(TRINKET_BOARDS) ,$(TRINKET_BASE_DTB))
@@ -293,6 +313,19 @@ sdmsteppeauto-dtb-$(CONFIG_ARCH_SA6155) += \
 sdmsteppeauto-overlays-dtb-$(CONFIG_ARCH_SA6155) += $(SA6155_BOARDS) $(SA6155P_BOARDS) $(SA6155_BASE_DTB) $(SA6155P_BASE_DTB)
 
 dtb-y += $(sdmsteppeauto-dtb-y)
+
+SDM670_BASE_DTB += qcs605.dtb
+
+SDM670_BOARDS += \
+		 qcs605-mtp-overlay.dtbo \
+		 qcs605-cdp-overlay.dtbo \
+		 qcs605-360camera-overlay.dtbo \
+		 qcs605-external-codec-mtp-overlay.dtbo
+
+qcs605-dtb-$(CONFIG_ARCH_SDM670) += \
+	$(call add-overlays, $(SDM670_BOARDS) ,$(SDM670_BASE_DTB))
+qcs605-overlays-dtb-$(CONFIG_ARCH_SDM670) += $(SDM670_BOARDS) $(SDM670_BASE_DTB)
+dtb-y += $(qcs605-dtb-y)
 
 LEMANS_BASE_DTB		+= lemans.dtb
 LEMANS_IVI_BASE_DTB	+= lemans-ivi.dtb
@@ -380,6 +413,14 @@ DIREWOLF_MULTI_GVM_BOARDS += \
 		direwolf-vm-la-mt-overlay.dtbo \
 		direwolf-vm-lv-mt-overlay.dtbo
 
+LEMANS_MULTI_GVM_BASE_DTB += \
+		lemans-vm-la-mt.dtb \
+		lemans-vm-lv-mt.dtb
+
+LEMANS_MULTI_GVM_BOARDS += \
+		lemans-vm-la-mt-overlay.dtbo \
+		lemans-vm-lv-mt-overlay.dtbo
+
 SA8195_LA_GVM_BASE_DTB += sa8195-vm-la.dtb
 
 SA8195_LA_GVM_BOARDS += \
@@ -398,13 +439,15 @@ autogvm-dtb-$(CONFIG_QTI_QUIN_GVM) += \
 	$(call add-overlays, $(LEMANS_LV_GVM_BOARDS),$(LEMANS_LV_GVM_BASE_DTB)) \
 	$(call add-overlays, $(LEMANS_LA_GVM_BOARDS),$(LEMANS_LA_GVM_BASE_DTB)) \
 	$(call add-overlays, $(DIREWOLF_LV_GVM_HEADLESS_BOARDS),$(DIREWOLF_LV_GVM_HEADLESS_BASE_DTB)) \
-	$(call add-overlays, $(DIREWOLF_MULTI_GVM_BOARDS),$(DIREWOLF_MULTI_GVM_BASE_DTB))
+	$(call add-overlays, $(DIREWOLF_MULTI_GVM_BOARDS),$(DIREWOLF_MULTI_GVM_BASE_DTB)) \
+	$(call add-overlays, $(LEMANS_MULTI_GVM_BOARDS),$(LEMANS_MULTI_GVM_BASE_DTB))
 
 autogvm-overlays-dtb-$(CONFIG_QTI_QUIN_GVM) += \
 	$(SA8155_LA_GVM_BOARDS) $(DIREWOLF_LV_GVM_BOARDS) $(SA8155_LA_GVM_BASE_DTB) $(DIREWOLF_LV_GVM_BASE_DTB) \
 	$(SA8195_LA_GVM_BOARDS) $(SA8195_LA_GVM_BASE_DTB) $(DIREWOLF_LA_GVM_BOARDS) $(DIREWOLF_LA_GVM_BASE_DTB) \
 	$(LEMANS_LA_GVM_BOARDS) $(LEMANS_LA_GVM_BASE_DTB) $(LEMANS_LV_GVM_BOARDS) $(LEMANS_LV_GVM_BASE_DTB) \
-	$(DIREWOLF_LV_GVM_HEADLESS_BOARDS) $(DIREWOLF_LV_GVM_HEADLESS_BASE_DTB) $(DIREWOLF_MULTI_GVM_BOARDS) $(DIREWOLF_MULTI_GVM_BASE_DTB)
+	$(DIREWOLF_LV_GVM_HEADLESS_BOARDS) $(DIREWOLF_LV_GVM_HEADLESS_BASE_DTB) $(DIREWOLF_MULTI_GVM_BOARDS) \
+	$(DIREWOLF_MULTI_GVM_BASE_DTB) $(LEMANS_MULTI_GVM_BOARDS) $(LEMANS_MULTI_GVM_BASE_DTB)
 
 dtb-y += $(autogvm-dtb-y)
 
@@ -417,6 +460,32 @@ scuba_auto-dtb-$(CONFIG_ARCH_SCUBA_AUTO) += \
 scuba_auto-overlays-dtb-$(CONFIG_ARCH_SCUBA_AUTO) += $(SCUBA_AUTO_BOARDS) $(SCUBA_AUTO_BASE_DTB)
 dtb-y += $(scuba_auto-dtb-y)
 
+endif
+
+ifeq ($(CONFIG_ARCH_LEMANS), y)
+ifeq ($(CONFIG_ARCH_QTI_VM), y)
+
+LEMANS_GH_LA_GVM_QAM_BASE_DTB += lemans-gunyah-vm-qam.dtb
+LEMANS_GH_LA_GVM_QAM_BOARDS += lemans-gunyah-vm-qam-overlay.dtbo
+
+LEMANS_GH_LA_GVM_VP_BASE_DTB += lemans-gunyah-vm-vp.dtb
+LEMANS_GH_LA_GVM_VP_BOARDS += lemans-gunyah-vm-vp-overlay.dtbo
+
+LEMANS_GH_LA_GVM_COB_BASE_DTB += lemans-gunyah-vm-cob.dtb
+LEMANS_GH_LA_GVM_COB_BOARDS += lemans-gunyah-vm-cob-overlay.dtbo
+
+autoghgvm-dtb-$(CONFIG_ARCH_QTI_VM) += \
+	$(call add-overlays, $(LEMANS_GH_LA_GVM_QAM_BOARDS),$(LEMANS_GH_LA_GVM_QAM_BASE_DTB)) \
+	$(call add-overlays, $(LEMANS_GH_LA_GVM_VP_BOARDS),$(LEMANS_GH_LA_GVM_VP_BASE_DTB)) \
+	$(call add-overlays, $(LEMANS_GH_LA_GVM_COB_BOARDS),$(LEMANS_GH_LA_GVM_COB_BASE_DTB))
+
+autoghgvm-overlays-dtb-$(CONFIG_ARCH_QTI_VM) += \
+	$(LEMANS_GH_LA_GVM_QAM_BOARDS) $(LEMANS_GH_LA_GVM_QAM_BASE_DTB) \
+	$(LEMANS_GH_LA_GVM_VP_BOARDS) $(LEMANS_GH_LA_GVM_VP_BASE_DTB) \
+	$(LEMANS_GH_LA_GVM_COB_BOARDS) $(LEMANS_GH_LA_GVM_COB_BASE_DTB)
+
+dtb-y += $(autoghgvm-dtb-y)
+endif
 endif
 
 ifeq ($(CONFIG_ARCH_KALAMA), y)
@@ -433,6 +502,27 @@ kalama_tuivm-dtb-$(CONFIG_ARCH_QTI_VM) += kalama-vm-rumi.dtb \
                  kalama-oemvm-rumi.dtb \
                  kalamap-oemvm-hdk.dtb \
                  kalamap-oemvm-hhg.dtb
+dtb-y += $(kalama_tuivm-dtb-y)
+endif
+endif
+
+ifeq ($(CONFIG_ARCH_CROW), y)
+ifeq ($(CONFIG_ARCH_QTI_VM), y)
+kalama_tuivm-dtb-$(CONFIG_ARCH_QTI_VM) += crow-vm-rumi.dtb \
+	crow-vm-atp.dtb \
+	crow-vm-idp-wcd9395-aatc.dtb \
+	crow-vm-idp-wcd9395-dmic.dtb \
+	crow-vm-idp-wcd9395-wcd-dmic.dtb \
+	crow-vm-idp.dtb \
+	crow-vm-idp-rcm.dtb \
+	crow-vm-qrd.dtb \
+	crow-oemvm-atp.dtb \
+	crow-oemvm-idp-wcd9395-aatc.dtb \
+	crow-oemvm-idp-wcd9395-dmic.dtb \
+	crow-oemvm-idp-wcd9395-wcd-dmic.dtb \
+	crow-oemvm-idp.dtb \
+	crow-oemvm-idp-rcm.dtb \
+	crow-oemvm-qrd.dtb
 dtb-y += $(kalama_tuivm-dtb-y)
 endif
 endif
