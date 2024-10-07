@@ -129,7 +129,7 @@
 		fts,fod-x-size = <2670>;
 		fts,fod-y-size = <2670>;
 		fts,support-fod;
-		fts,support-thp;
+		/*fts,support-thp;*/
 		fts,support-thp-fw;
 		spi-max-frequency = <12000000>;
 		fts,support-super-resolution = <1>;
