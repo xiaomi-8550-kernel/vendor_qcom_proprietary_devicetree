@@ -44,11 +44,6 @@
 								"close_irq";
 		};
 	};
-	xiaomi_touch {
-		compatible = "xiaomi-touch";
-		status = "ok";
-		touch,name = "xiaomi-touch";
-	};
 	fingerprint_fpc {
 		status = "ok";
 		compatible = "fpc,fpc1020";
